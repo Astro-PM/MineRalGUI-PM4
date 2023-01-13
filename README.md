@@ -48,8 +48,11 @@
 </details>
 <br>
 
-## Support
+## Plugin Support
 [InvMenu](https://github.com/muqsit/InvMenu)(Muqsit)
+[InvCrashFix](https://github.com/Muqsit/InvCrashFix)(Muqsit)
+[EconomyAPI](https://github.com/onebone/EconomyS)(onebone)
+>- Please install the above 3 plugins into the `plugins/` directory
 <br>
 
 ## Download
