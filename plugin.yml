@@ -1,0 +1,23 @@
+name: MineRalGUI
+api: 4.0.0
+version: 1.0.0
+author: ItzFabb, ClickedTran
+main: ItzFabb\mineral\Main
+depend: ["EconomyAPI", "InvCrashFix"]
+
+commands:
+  mineral:
+    description: "Open Menu Mineral"
+    aliases:
+    - mine
+    permission: mineral.cmd
+  mineauto:
+    description: "Turn ON/OFF Automatic"
+    permission: mineauto.cmd
+permissions:
+ mineral.cmd:
+  default: true
+  description: "Permission open menu MineRal"
+ mineauto.cmd:
+  default: true
+  description: "Permission turn on/off automatic"
