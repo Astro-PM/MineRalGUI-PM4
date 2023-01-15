@@ -43,10 +43,15 @@
 <br>
 
 ## Feature
-- This is a plugin that allows players to store mined ore in the inventory
-
-</details>
+- This is a plugin that allows players to store mined ore in the inventory 
 <br>
+
+<h4>Fixed</h4>
+
+>- Add blocks to minerals when not already added to the island (SkyBlock)
+<br>
+
+
 
 ## Plugin Support
 - [InvMenu](https://github.com/muqsit/InvMenu)(Muqsit)
