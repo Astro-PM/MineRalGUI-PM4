@@ -3,7 +3,7 @@ api: 4.0.0
 version: 1.0.0
 author: ItzFabb, ClickedTran
 main: ItzFabb\mineral\Main
-depend: ["EconomyAPI", "InvCrashFix"]
+
 
 commands:
   mineral:
