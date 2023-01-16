@@ -1,11 +1,16 @@
 ## ICON 
-<img src="https://github.com/Clickedtran/MineRalGUI-PM4/blob/Master/icon.gif" align="center">
+<div align="center">
+<img src="https://github.com/Clickedtran/MineRalGUI-PM4/blob/Master/icon.gif">
 <br>
 
 <img src="https://github.com/Clickedtran/MineRalGUI-PM4/blob/Master/mineral.jpg" align="center">
 <br>
 
-<img src="https://github.com/Clickedtran/MineRalGUI-PM4/blob/Master/icon.gif" align="center">
+<img src="https://github.com/Clickedtran/MineRalGUI-PM4/blob/Master/icon.gif">
+</div>
+<br>
+
+
 ## General
 <h3 align="center"><u>INFO PLUGIN</u></h3>
 <table border="1" align="center">
