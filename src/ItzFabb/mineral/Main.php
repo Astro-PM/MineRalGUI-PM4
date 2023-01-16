@@ -16,7 +16,7 @@ use pocketmine\event\Listener;
 
 use pocketmine\command\Command;
 
-use pocketmine\command\Commandsender;
+use pocketmine\command\CommandSender;
 
 use pocketmine\inventory\transaction\action\SlotChangeAction;
 
