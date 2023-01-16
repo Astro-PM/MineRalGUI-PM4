@@ -1,0 +1,8 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Clickedtran/MineRalGUI-PM4
+build-by-default: true
+branches:
+- Master
+projects:
+  MineRalGUI-PM4:
+    path: ""
+...
