@@ -70,7 +70,11 @@
 - [InvMenu](https://github.com/muqsit/InvMenu)(Muqsit)
 - [InvCrashFix](https://github.com/Muqsit/InvCrashFix)(Muqsit)
 - [EconomyAPI](https://github.com/onebone/EconomyS)(onebone)
->- Please install the above 3 plugins into the `plugins/` directory
+- [DEVirion](https://github.com/poggit/devirion)(SOF3)
+>- Please install the above 3 plugins including `EconomyAPI, InvCrashFix, DEVirion` into the `plugins/` directory
+<br>
+
+>- As for `InvMenu`, please install the above 3 plugins and `restart server`, then try to file `InvMenu` in the `virions` section next to `PocketMine-MP/`
 <br>
 
 ## Download
