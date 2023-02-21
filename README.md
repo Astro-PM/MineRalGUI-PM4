@@ -74,7 +74,7 @@
 >- Please install the above 3 plugins including `EconomyAPI, InvCrashFix, DEVirion` into the `plugins/` directory
 <br>
 
->- As for `InvMenu`, please install the above 3 plugins and `restart server`, then try to file `InvMenu` in the `virions` section next to `PocketMine-MP/`
+>- As for `InvMenu`, please install the above 3 plugins and `restart server`, add files `InvMenu` in the `virions` section next to `PocketMine-MP/`
 <br>
 
 ## Download
