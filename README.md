@@ -68,13 +68,12 @@
 
 ## Plugin Support
 - [InvMenu](https://github.com/muqsit/InvMenu)(Muqsit)
-- [InvCrashFix](https://github.com/Muqsit/InvCrashFix)(Muqsit)
 - [EconomyAPI](https://github.com/onebone/EconomyS)(onebone)
 - [DEVirion](https://github.com/poggit/devirion)(SOF3)
->- Please install the above 3 plugins including `EconomyAPI, InvCrashFix, DEVirion` into the `plugins/` directory
+>- Please install the above 2 plugins including `EconomyAPI, DEVirion` into the `plugins/` directory
 <br>
 
->- As for `InvMenu`, please install the above 3 plugins and `restart server`, add files `InvMenu` in the `virions` section next to `PocketMine-MP/`
+>- As for `InvMenu`, please install the above 2 plugins and `restart server`, add files `InvMenu` in the `virions` section next to `PocketMine-MP/`
 <br>
 
 ## Download
@@ -112,6 +111,5 @@
 
 - If you use a computer, you probably already know how to download
 - If you are using Android, please click <a href="https://github.com/Clickedtran/MineRalGUI-PM4/archive/refs/heads/Master.zip"><b><u>to here</b></u></a>for quick download 
-- If you are Vietnamese, Download the version dedicated to Vietnamese people <a href="https://github.com/Clickedtran/MineRalGUI-PM4/releases/tag/vietnamese"><b><u>in here</b></u></a>
 <br>
 
