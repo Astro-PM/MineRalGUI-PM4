@@ -42,6 +42,7 @@ use muqsit\invmenu\InvMenuHandler;
 use muqsit\invmenu\transaction\InvMenuTransaction;
 use muqsit\invmenu\transaction\InvMenuTransactionResult;
 
+use jojoe77777\FormAPI\{SimpleForm, CustomForm};
 use vanilla\FortuneEnchantment;
 use onebone\economyapi\EconomyAPI;
 
@@ -87,7 +88,7 @@ class Main extends PluginBase implements Listener {
 
 	public function onJoin(PlayerJoinEvent $ev) {
 		if (!$this->auto->exists($ev->getPlayer()->getName())) {
-			$this->auto->set($ev->getPlayer()->getName(), "on");
+			$this->auto->set($ev->getPlayer()->getName(), "off");
 			$this->auto->save();
 		}
 	}
@@ -101,14 +102,14 @@ class Main extends PluginBase implements Listener {
 			if ($this->auto->get($player->getName()) == "on") {
 				if ($ev->getBlock()->getId() == 56) {
 					$ev->setDrops(array());
-					$id = mt_rand(1,$level);
+					$id = mt_rand(0,$level);
 					$this->data->set(self::DIAMOND, ($this->data->get(self::DIAMOND) + $id));
 					$this->data->save();
 				}
 				//Than
 				if ($ev->getBlock()->getId() == 16) {
 					$ev->setDrops(array());
-					$id = mt_rand(1,$level);
+					$id = mt_rand(0,$level);
 					$this->data->set(self::COAL, ($this->data->get(self::COAL) + $id));
 					$this->data->save();
 				}
@@ -139,8 +140,8 @@ class Main extends PluginBase implements Listener {
 				//Đá Đỏ
 				if ($ev->getBlock()->getId() == 73) {
 					$ev->setDrops(array());
-					$id = mt_rand(1,$level);
-					$this->data->set(self::REDSTONE, ($this->data->get(self::REDSTONE) + $id * 4));
+					$id = mt_rand(0,$level);
+					$this->data->set(self::REDSTONE, ($this->data->get(self::REDSTONE) + $id));
 					$this->data->save();
 				}
 				//block emrald
@@ -151,7 +152,7 @@ class Main extends PluginBase implements Listener {
 				}
 				if ($ev->getBlock()->getId() == 129) {
 					$ev->setDrops(array());
-					$id = mt_rand(1,$level);
+					$id = mt_rand(0,$level);
 					$this->data->set(self::EMERALD, ($this->data->get(self::EMERALD) + $id));
 					$this->data->save();
 				}
@@ -494,7 +495,7 @@ class Main extends PluginBase implements Listener {
 		$inventory->setItem(28, ItemFactory::getInstance()->get(339, 11, 1)->setCustomName(" §l§aAdd §5x16"));
 		$inventory->setItem(29, ItemFactory::getInstance()->get(339, 12, 1)->setCustomName("§l§aAdd §5x32"));
 		$inventory->setItem(30, ItemFactory::getInstance()->get(339, 13, 1)->setCustomName(" §l§aAdd §5x64"));
-		$inventory->setItem(31, ItemFactory::getInstance()->get(208, 0, 1));
+		$inventory->setItem(31, ItemFactory::getInstance()->get(54, 0, 1)->setCustomName("§l§aElective"));
 		$inventory->setItem(32, ItemFactory::getInstance()->get(339, 0, 1)->setCustomName("§l§aTake §5x16"));
 		$inventory->setItem(33, ItemFactory::getInstance()->get(339, 1, 1)->setCustomName("§l§aTake §5x32"));
 		$inventory->setItem(34, ItemFactory::getInstance()->get(339, 2, 1)->setCustomName("§l§aTake §5x64"));
@@ -521,6 +522,7 @@ class Main extends PluginBase implements Listener {
 		$item = $action->getOut();
 		$itemN = $item->getCustomName();
 		$sender = $action->getPlayer();
+		$inv = $action->getAction()->getInventory();
 		$id = $this->id->get($sender->getName());
 		$metan = 0;
 		if ($id == 351) {
@@ -533,6 +535,12 @@ class Main extends PluginBase implements Listener {
 			$this->kho($sender);
 			return $action->discard();
 		}
+		if($item->getId() == 54){
+			$this->elective($sender);
+		    $sender->removeCurrentWindow($inventory);
+			return $action->discard();
+		}
+
 		$meta = $item->getMeta();
 		switch ($meta) {
 			case 11:
@@ -624,5 +632,74 @@ class Main extends PluginBase implements Listener {
 				break;
 		}
 		return $action->discard();
+	}
+	
+/**DON'T DELETE PUBLIC HERE*/
+/**         ||             */
+/**         \/             */
+	public function elective(Player $sender){
+	 $form = new CustomForm(function (Player $sender, $data){
+		$result = $data;
+		 if($result == null){
+			  $this->electiveMenu($sender);
+			 return true;
+		 }
+		    $id = $this->id->get($sender->getName());
+	        $metan = 0;
+	        if ($id == 351) {
+		         $metan = 4;
+	        }
+		    $type = $this->int->get($sender->getName());
+			if ($this->getNumber($type, $sender) >= 0) {
+					if ($sender->getInventory()->firstEmpty() === -1) {
+						$sender->sendMessage("§5[§aMineRal§5]: §cError, your inventory is full. try again."); 
+					}else{
+						$sender->getInventory()->addItem(ItemFactory::getInstance()->get($id, $metan, $data[0]));
+						$this->data = new Config($this->getDataFolder() . "players/" . $sender->getName() . ".yml", Config::YAML);
+		                $this->data->set($type, ($this->data->get($type) - $data[0]));
+		                $this->data->save();
+						$sender->sendMessage("§5[§aMineRal§5]: §aYou have taken $data[0] items out of your inventory.");
+					}
+				} else {
+					$sender->sendMessage("§5[§aMineRal§5]: §cThere are not enough items in stock to take out.");
+			}
+		});
+		$form->setTitle("§l§a• §bMineRal §a•");
+		$form->addInput("§l§aEnter the quantity to take: ");
+		$form->sendToPlayer($sender);
+	}
+/**        /\              */
+/**        ||              */
+/**DON'T DELETE PUBLIC HERE*/
+	
+	public function electiveMenu(Player $sender){
+		$form = new CustomForm(function (Player $sender, $data){
+		$result = $data;
+		 if($result == null){
+			 return true;
+		 }
+		    $id = $this->id->get($sender->getName());
+	        $metan = 0;
+	        if ($id == 351) {
+		         $metan = 4;
+	        }
+		    $type = $this->int->get($sender->getName());
+			if ($this->getNumber($type, $sender) >= 0) {
+					if ($sender->getInventory()->firstEmpty() === -1) {
+						$sender->sendMessage("§5[§aMineRal§5]: §cError, your inventory is full. try again."); 
+					}else{
+						$sender->getInventory()->addItem(ItemFactory::getInstance()->get($id, $metan, $data[0]));
+						$this->data = new Config($this->getDataFolder() . "players/" . $sender->getName() . ".yml", Config::YAML);
+		                $this->data->set($type, ($this->data->get($type) - $data[0]));
+		                $this->data->save();
+						$sender->sendMessage("§5[§aMineRal§5]: §aYou have taken $data[0] items out of your inventory.");
+					}
+				} else {
+					$sender->sendMessage("§5[§aMineRal§5]: §cThere are not enough items in stock to take out.");
+			}
+		});
+		$form->setTitle("§l§a• §bMineRalGUI §a•");
+		$form->addInput("§l§aEnter the quantity to take: ");
+		$form->sendToPlayer($sender);
 	}
 }
