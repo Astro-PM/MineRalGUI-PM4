@@ -32,6 +32,15 @@
 </tr>
 </table>
 <br>
+
+<div align="center">
+<h3 align="center">Plugin Overview</h3>
+<p>Coded by: <i><strong>ItzFabb</strong></i></p>
+<p>Upgrade to PocketMine-MP 4.0 by <i><strong>ClickedTran</strong></i></p>
+<p>Responsible for bug fixes and plugin upgrades by <i><strong>ClickedTran</strong></i></p>
+</div>
+
+<br>
 <h3 align="center"><u>ALL COMMAND FOR PLUGIN</u></h3>
 <table border="1" align="center">
 <tr>
@@ -56,7 +65,14 @@
 <br>
 
 ## Feature
-- This is a plugin that allows players to store mined ore in the inventory 
+- This is a plugin that allows players to store mined ore in the MineRal
+
+<br>
+
+<h4>Upgrade</h4>
+
+>- Option to take the number of items out of the MineRal
+
 <br>
 
 <h4>Fixed</h4>
