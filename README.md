@@ -127,6 +127,5 @@
 
 - If you use a computer, you probably already know how to download
 - If you are using Android, please click <a href="https://github.com/Clickedtran/MineRalGUI-PM4/archive/refs/heads/Master.zip"><b><u>to here</b></u></a>for quick download 
-- If you are Vietnamese, please click <a href="https://github.com/Clickedtran/MineRalGUI-PM4/releases/download/vietnamese/KhoKhoangSan_VN.zip">to here</a> to download the Vietnamese version
 <br>
 
