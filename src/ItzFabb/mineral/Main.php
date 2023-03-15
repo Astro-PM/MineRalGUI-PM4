@@ -634,7 +634,9 @@ class Main extends PluginBase implements Listener {
 		return $action->discard();
 	}
 	
-/**DON'T DELETE PUBLIC HERE ↓*/
+/**DON'T DELETE PUBLIC HERE */
+/**         ||              */
+/**         \/              */
 	public function elective(Player $sender){
 	 $form = new CustomForm(function (Player $sender, $data){
 		$result = $data;
@@ -666,6 +668,9 @@ class Main extends PluginBase implements Listener {
 		$form->addInput("§l§aEnter the quantity to take: ");
 		$form->sendToPlayer($sender);
 	}
+/**        /\     */
+/**        ||     */
+/**DON'T DELETE PUBLIC HERE!*/
 	
 	public function electiveMenu(Player $sender){
 		$form = new CustomForm(function (Player $sender, $data){
