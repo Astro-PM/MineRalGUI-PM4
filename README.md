@@ -80,6 +80,9 @@
 >- Add blocks to minerals when not already added to the island (SkyBlock)
 <br>
 
+>- set the number of blocks in Mineral to be a negative number entered by the player
+<br>
+
 
 
 ## Plugin Support
