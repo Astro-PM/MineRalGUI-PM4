@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace ItzFabb\mineral;
 
 //Essentials Class
@@ -54,9 +52,9 @@ class Main extends PluginBase implements Listener {
 	public const BLOCKREDSTONE = 3;
 	public const COAL = 4;
 	public const BLOCKCOAL = 5;
-	public const IRON = 6;
+	public const IRON_ORE = 6;
 	public const BLOCKIRON = 7;
-	public const GOLD = 8;
+	public const GOLD_ORE = 8;
 	public const BLOCKGOLD = 9;
 	public const DIAMOND = 10;
 	public const BLOCKDIAMOND = 11;
@@ -106,76 +104,101 @@ class Main extends PluginBase implements Listener {
 					$this->data->set(self::DIAMOND, ($this->data->get(self::DIAMOND) + $id));
 					$this->data->save();
 				}
-				//Than
+				//COAL
 				if ($ev->getBlock()->getId() == 16) {
 					$ev->setDrops(array());
 					$id = mt_rand(0,$level);
 					$this->data->set(self::COAL, ($this->data->get(self::COAL) + $id));
 					$this->data->save();
 				}
-				///Block Vàng
+				///GOLD BLOCK
 				if ($ev->getBlock()->getId() == 41) {
 					$ev->setDrops(array());
 					$this->data->set(self::BLOCKGOLD, ($this->data->get(self::BLOCKGOLD) + 1));
 					$this->data->save();
 				}
-				//Block Sắt
+				//IRON BLOCK
 				if ($ev->getBlock()->getId() == 42) {
 					$ev->setDrops(array());
 					$this->data->set(self::BLOCKIRON, ($this->data->get(self::BLOCKIRON) + 1));
 					$this->data->save();
-				}
-				//Đá
+			     }
+				//COBLESTONE
 				if ($ev->getBlock()->getId() == 4) {
 					$ev->setDrops(array());
 					$this->data->set(self::COBLESTONE, ($this->data->get(self::COBLESTONE) + 1));
 					$this->data->save();
 				}
-				//Block Kim Cương
+				//DIAMOND BLOCK
 				if ($ev->getBlock()->getId() == 57) {
 					$ev->setDrops(array());
 					$this->data->set(self::BLOCKDIAMOND, ($this->data->get(self::BLOCKDIAMOND) + 1));
 					$this->data->save();
 				}
-				//Đá Đỏ
+				//REDSTONE
 				if ($ev->getBlock()->getId() == 73) {
 					$ev->setDrops(array());
 					$id = mt_rand(0,$level);
 					$this->data->set(self::REDSTONE, ($this->data->get(self::REDSTONE) + $id));
 					$this->data->save();
 				}
-				//block emrald
+				//EMERALD BLOCK
 				if ($ev->getBlock()->getId() == 133) {
 					$ev->setDrops(array());
 					$this->data->set(self::BLOCKEMERALD, ($this->data->get(self::BLOCKEMERALD) + 1));
 					$this->data->save();
 				}
+				//EMERALD
 				if ($ev->getBlock()->getId() == 129) {
 					$ev->setDrops(array());
 					$id = mt_rand(0,$level);
 					$this->data->set(self::EMERALD, ($this->data->get(self::EMERALD) + $id));
 					$this->data->save();
 				}
+				//COAL BLOCK
 				if ($ev->getBlock()->getId() == 173) {
 					$ev->setDrops(array());
 					$this->data->set(self::BLOCKCOAL, ($this->data->get(self::BLOCKCOAL) + 1));
 					$this->data->save();
 				}
+				//LAPIS
 				if ($ev->getBlock()->getId() == 21) {
 					$ev->setDrops(array());
 					$id = mt_rand(0, $level);
 					$this->data->set(self::LAPIZ, ($this->data->get(self::LAPIZ) + $id));
 					$this->data->save();
 				}
+				//LAPIS BLOCK
 				if ($ev->getBlock()->getId() == 22) {
 					$ev->setDrops(array());
 					$this->data->set(self::BLOCKLAPIZ, ($this->data->get(self::BLOCKLAPIZ) + 1));
 					$this->data->save();
 				}
+				//REDSTONE BLOCK
 				if ($ev->getBlock()->getId() == 152) {
 					$ev->setDrops(array());
 					$this->data->set(self::BLOCKREDSTONE, ($this->data->get(self::BLOCKREDSTONE) + 1));
 					$this->data->save();
+				}
+				//IRON ORE
+			    if($ev->getBlock()->getId() == 15){
+				    $ev->setDrops(array());
+				    $id = mt_rand(0, $level);
+				    $this->data->set(self::IRON_ORE, ($this->data->get(self::IRON_ORE) + 1 * $id));
+				    $this->data->save();
+				}
+				//GOLD ORE
+				if($ev->getBlock()->getId() == 14){
+				    $ev->setDrops(array());
+				    $id = mt_rand(0, $level);
+				    $this->data->set(self::GOLD_ORE, ($this->data->get(self::GOLD_ORE) + 1 * $id));
+				    $this->data->save();
+				}
+				//STONE -> COBLESTONE
+				if($ev->getBlock()->getId() == 1){
+				    $ev->setDrops(array());
+				    $this->data->set(self::COBLESTONE, ($this->data->get(self::COBLESTONE) + 1));
+				    $this->data->save();
 				}
 			}
 		}
@@ -297,8 +320,8 @@ class Main extends PluginBase implements Listener {
 		$inventory->setitem(19, ItemFactory::getInstance()->get(351, 4, 1)->setCustomName(" §r LAPIZ "));
 		$inventory->setItem(20, ItemFactory::getInstance()->get(331, 0, 1)->setCustomName(" §r REDSTONE "));
 		$inventory->setItem(21, ItemFactory::getInstance()->get(263, 0, 1)->setCustomName(" §rCOAL "));
-		$inventory->setItem(22, ItemFactory::getInstance()->get(265, 0, 1)->setCustomName(" §rIRON ORE "));
-		$inventory->setItem(23, ItemFactory::getInstance()->get(266, 0, 1)->setCustomName(" §rGOLD ORE "));
+		$inventory->setItem(22, ItemFactory::getInstance()->get(15, 0, 1)->setCustomName(" §rIRON ORE "));
+		$inventory->setItem(23, ItemFactory::getInstance()->get(14, 0, 1)->setCustomName(" §rGOLD ORE "));
 		$inventory->setItem(24, ItemFactory::getInstance()->get(264, 0, 1)->setCustomName(" §rDIAMOND "));
 		$inventory->setItem(25, ItemFactory::getInstance()->get(388, 0, 1)->setCustomName(" §rEMERALD "));
 		$inventory->setItem(26, ItemFactory::getInstance()->get(160, 9, 1)->setCustomName(" §r §7 §r"));
@@ -328,7 +351,7 @@ class Main extends PluginBase implements Listener {
 		$inventory->setItem(47, ItemFactory::getInstance()->get(160, 9, 1)->setCustomName(" §r §7 §r"));
 		$inventory->setItem(48, ItemFactory::getInstance()->get(386, 0, 1)->setCustomName("§l§7QUANTITY OF QUALITY BLOCKS IN CURRENT STOCK:\n\n§f＞ §bBLOCK LAPIZ:§a " . $this->getNumber(self::BLOCKLAPIZ, $sender) . "\n§f＞ §bBLOCK REDSTONE:§a " . $this->getNumber(self::BLOCKREDSTONE, $sender) . "\n§f＞ §bBLOCK COAL:§a " . $this->getNumber(self::BLOCKCOAL, $sender) . "\n§f＞ §bIRON BLOCK:§a " . $this->getNumber(self::BLOCKIRON, $sender) . "\n§f＞ §bGOLD BLOCK:§a " . $this->getNumber(self::BLOCKGOLD, $sender) . "\n§f＞ §bDIAMOND BLOCK:§a " . $this->getNumber(self::BLOCKDIAMOND, $sender) . "\n§f＞ §bEMERALD BLOCK:§a " . $this->getNumber(self::BLOCKEMERALD, $sender) . "\n\n"));
 		$inventory->setItem(49, ItemFactory::getInstance()->get(152, 0, 1)->setCustomName("§l§a• §cEXIT§a •"));
-		$inventory->setItem(50, ItemFactory::getInstance()->get(386, 0, 1)->setCustomName("§l§7QUANTITY OF ORDERS IN EXISTING STOCK:\n\n§f＞ §bCOBLESTONE:§a " . $this->getNumber(self::COBLESTONE, $sender) . "\n§f＞ §bLAPIZ:§a " . $this->getNumber(self::LAPIZ, $sender) . "\n§f＞ §bREDSTONE:§a " . $this->getNumber(self::REDSTONE, $sender) . "\n§f＞ §bCOAL:§a " . $this->getNumber(self::COAL, $sender) . "\n§f＞ §bIRON:§a " . $this->getNumber(self::IRON, $sender) . "\n§f＞ §bGOLD:§a " . $this->getNumber(self::GOLD, $sender) . "\n§f＞ §bDIAMOND:§a " . $this->getNumber(self::DIAMOND, $sender) . "\n§f＞ §bEMERALD:§a " . $this->getNumber(self::EMERALD, $sender) . "\n\n"));
+		$inventory->setItem(50, ItemFactory::getInstance()->get(386, 0, 1)->setCustomName("§l§7QUANTITY OF ORDERS IN EXISTING STOCK:\n\n§f＞ §bCOBLESTONE:§a " . $this->getNumber(self::COBLESTONE, $sender) . "\n§f＞ §bLAPIZ:§a " . $this->getNumber(self::LAPIZ, $sender) . "\n§f＞ §bREDSTONE:§a " . $this->getNumber(self::REDSTONE, $sender) . "\n§f＞ §bCOAL:§a " . $this->getNumber(self::COAL, $sender) . "\n§f＞ §bIRON ORE:§a " . $this->getNumber(self::IRON_ORE, $sender) . "\n§f＞ §bGOLD ORE:§a " . $this->getNumber(self::GOLD_ORE, $sender) . "\n§f＞ §bDIAMOND:§a " . $this->getNumber(self::DIAMOND, $sender) . "\n§f＞ §bEMERALD:§a " . $this->getNumber(self::EMERALD, $sender) . "\n\n"));
 		$inventory->setItem(51, ItemFactory::getInstance()->get(160, 9, 1)->setCustomName(" §r §7 §r"));
 		$inventory->setItem(52, ItemFactory::getInstance()->get(160, 9, 1)->setCustomName(" §r §7 §r"));
 		$inventory->setItem(53, ItemFactory::getInstance()->get(160, 9, 1)->setCustomName(" §r §7 §r"));
@@ -388,10 +411,10 @@ class Main extends PluginBase implements Listener {
 			$this->item($sender);
 			return $action->discard();
 		}
-		if ($item->getId() == 265) {
+		if ($item->getId() == 15) {
 
-			$this->int->set($sender->getName(), self::IRON);
-			$this->id->set($sender->getName(), 265);
+			$this->int->set($sender->getName(), self::IRON_ORE);
+			$this->id->set($sender->getName(), 15);
 			$this->item($sender);
 			return $action->discard();
 		}
@@ -409,10 +432,10 @@ class Main extends PluginBase implements Listener {
 			$this->item($sender);
 			return $action->discard();
 		}
-		if ($item->getId() == 266) {
+		if ($item->getId() == 14) {
 
-			$this->int->set($sender->getName(), self::GOLD);
-			$this->id->set($sender->getName(), 266);
+			$this->int->set($sender->getName(), self::GOLD_ORE);
+			$this->id->set($sender->getName(), 14);
 			$this->item($sender);
 			return $action->discard();
 		}
@@ -634,9 +657,7 @@ class Main extends PluginBase implements Listener {
 		return $action->discard();
 	}
 	
-/**DON'T DELETE PUBLIC HERE */
-/**         ||              */
-/**         \/              */
+/**DON'T DELETE PUBLIC HERE ↓*/
 	public function elective(Player $sender){
 	 $form = new CustomForm(function (Player $sender, $data){
 		$result = $data;
@@ -668,9 +689,6 @@ class Main extends PluginBase implements Listener {
 		$form->addInput("§l§aEnter the quantity to take: ");
 		$form->sendToPlayer($sender);
 	}
-/**        /\     */
-/**        ||     */
-/**DON'T DELETE PUBLIC HERE!*/
 	
 	public function electiveMenu(Player $sender){
 		$form = new CustomForm(function (Player $sender, $data){
