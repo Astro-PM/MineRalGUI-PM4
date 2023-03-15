@@ -634,9 +634,7 @@ class Main extends PluginBase implements Listener {
 		return $action->discard();
 	}
 	
-/**DON'T DELETE PUBLIC HERE*/
-/**         ||             */
-/**         \/             */
+/**DON'T DELETE PUBLIC HERE ↓*/
 	public function elective(Player $sender){
 	 $form = new CustomForm(function (Player $sender, $data){
 		$result = $data;
@@ -668,9 +666,6 @@ class Main extends PluginBase implements Listener {
 		$form->addInput("§l§aEnter the quantity to take: ");
 		$form->sendToPlayer($sender);
 	}
-/**        /\              */
-/**        ||              */
-/**DON'T DELETE PUBLIC HERE*/
 	
 	public function electiveMenu(Player $sender){
 		$form = new CustomForm(function (Player $sender, $data){
@@ -684,7 +679,10 @@ class Main extends PluginBase implements Listener {
 		         $metan = 4;
 	        }
 		    $type = $this->int->get($sender->getName());
-			if ($this->getNumber($type, $sender) >= 0) {
+			if ($this->data->get($type) > 0) {
+				if($data[0] < 0){
+					$sender->sendMessage("§5[§aMineRal§5]: §c The number you entered is not positive!");
+				}else{
 					if ($sender->getInventory()->firstEmpty() === -1) {
 						$sender->sendMessage("§5[§aMineRal§5]: §cError, your inventory is full. try again."); 
 					}else{
@@ -694,11 +692,12 @@ class Main extends PluginBase implements Listener {
 		                $this->data->save();
 						$sender->sendMessage("§5[§aMineRal§5]: §aYou have taken $data[0] items out of your inventory.");
 					}
+				 }
 				} else {
 					$sender->sendMessage("§5[§aMineRal§5]: §cThere are not enough items in stock to take out.");
 			}
 		});
-		$form->setTitle("§l§a• §bMineRalGUI §a•");
+		$form->setTitle("§l§a• §bMineRal §a•");
 		$form->addInput("§l§aEnter the quantity to take: ");
 		$form->sendToPlayer($sender);
 	}
