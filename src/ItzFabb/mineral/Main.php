@@ -668,7 +668,7 @@ class Main extends PluginBase implements Listener {
 	 $form = new CustomForm(function (Player $sender, $data){
 		$result = $data;
 		 if($result == null){
-			 $this->electiveMenu($sender);
+			$this->electiveMenu($sender);
 			 return true;
 		 }
 		    $id = $this->id->get($sender->getName());
@@ -677,23 +677,23 @@ class Main extends PluginBase implements Listener {
 		         $metan = 4;
 	        }
 		    $type = $this->int->get($sender->getName());
-			if ($this->data->get($type) > 0) {
-				if($data[0] <= 0){
+				if($data[0] < 0){
 					$sender->sendMessage("§5[§aMineRal§5]: §c The number you entered is not positive!");
 				}else{
-					if ($sender->getInventory()->firstEmpty() === -1) {
-						$sender->sendMessage("§5[§aMineRal§5]: §cError, your inventory is full. try again."); 
-					}else{
-						$sender->getInventory()->addItem(ItemFactory::getInstance()->get($id, $metan, $data[0]));
-						$this->data = new Config($this->getDataFolder() . "players/" . $sender->getName() . ".yml", Config::YAML);
-		                $this->data->set($type, ($this->data->get($type) - $data[0]));
-		                $this->data->save();
-						$sender->sendMessage("§5[§aMineRal§5]: §aYou have taken $data[0] items out of your inventory.");
-					}
-				 }
-				} else {
-					$sender->sendMessage("§5[§aMineRal§5]: §cThere are not enough items in stock to take out.");
+				    if($this->getNumber($type, $sender) >= $data[0]){
+					    if ($sender->getInventory()->firstEmpty() === -1) {
+						     $sender->sendMessage("§5[§aMineRal§5]: §cError, your inventory is full. try again."); 
+					    }else{
+						     $sender->getInventory()->addItem(ItemFactory::getInstance()->get($id, $metan, $data[0]));
+						     $this->data = new Config($this->getDataFolder() . "players/" . $sender->getName() . ".yml", Config::YAML);
+		                     $this->data->set($type, ($this->data->get($type) - $data[0]));
+		                     $this->data->save();
+						     $sender->sendMessage("§5[§aMineRal§5]: §aYou have taken $data[0] items out of your inventory.");
+					    }
+				   } else {
+					        $sender->sendMessage("§5[§aMineRal§5]: §cThere are not enough items in stock to take out.");
 			}
+		 }
 		});
 		$form->setTitle("§l§a• §bMineRal §a•");
 		$form->addInput("§l§aEnter the quantity to take: ");
@@ -701,7 +701,7 @@ class Main extends PluginBase implements Listener {
 	}
 	
 /**                /\
-*                  | |
+*                    | |
 *DON'T DELETE PUBLIC HERE
 */
 
@@ -717,23 +717,23 @@ class Main extends PluginBase implements Listener {
 		         $metan = 4;
 	        }
 		    $type = $this->int->get($sender->getName());
-			if ($this->data->get($type) > 0) {
 				if($data[0] < 0){
 					$sender->sendMessage("§5[§aMineRal§5]: §c The number you entered is not positive!");
 				}else{
-					if ($sender->getInventory()->firstEmpty() === -1) {
-						$sender->sendMessage("§5[§aMineRal§5]: §cError, your inventory is full. try again."); 
-					}else{
-						$sender->getInventory()->addItem(ItemFactory::getInstance()->get($id, $metan, $data[0]));
-						$this->data = new Config($this->getDataFolder() . "players/" . $sender->getName() . ".yml", Config::YAML);
-		                $this->data->set($type, ($this->data->get($type) - $data[0]));
-		                $this->data->save();
-						$sender->sendMessage("§5[§aMineRal§5]: §aYou have taken $data[0] items out of your inventory.");
-					}
-				 }
-				} else {
-					$sender->sendMessage("§5[§aMineRal§5]: §cThere are not enough items in stock to take out.");
+				    if($this->getNumber($type, $sender) >= $data[0]){
+					    if ($sender->getInventory()->firstEmpty() === -1) {
+						     $sender->sendMessage("§5[§aMineRal§5]: §cError, your inventory is full. try again."); 
+					    }else{
+						     $sender->getInventory()->addItem(ItemFactory::getInstance()->get($id, $metan, $data[0]));
+						     $this->data = new Config($this->getDataFolder() . "players/" . $sender->getName() . ".yml", Config::YAML);
+		                     $this->data->set($type, ($this->data->get($type) - $data[0]));
+		                     $this->data->save();
+						     $sender->sendMessage("§5[§aMineRal§5]: §aYou have taken $data[0] items out of your inventory.");
+					    }
+				   } else {
+					        $sender->sendMessage("§5[§aMineRal§5]: §cThere are not enough items in stock to take out.");
 			}
+		 }
 		});
 		$form->setTitle("§l§a• §bMineRal §a•");
 		$form->addInput("§l§aEnter the quantity to take: ");
