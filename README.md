@@ -77,6 +77,8 @@
 
 <h4>Fixed</h4>
 
+>- Take ore in excess of the amount of ore currently in stock
+>- Take the number of ores as a negative number
 >- Add blocks to minerals when not already added to the island (SkyBlock)
 <br>
 
