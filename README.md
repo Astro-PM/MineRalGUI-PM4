@@ -27,7 +27,7 @@
 <p>4.0.0</p>
 </td>
 <td align="center">
-<p>1.0.0</p>
+<p>1.5.0</p>
 </td>
 </tr>
 </table>
