@@ -186,14 +186,14 @@ class Main extends PluginBase implements Listener {
 			    if($ev->getBlock()->getId() == 15){
 				    $ev->setDrops(array());
 				    $id = mt_rand(0, $level);
-				    $this->data->set(self::IRON_ORE, ($this->data->get(self::IRON_ORE) + 1 * $id));
+				    $this->data->set(self::IRON_ORE, ($this->data->get(self::IRON_ORE + 1));
 				    $this->data->save();
 				}
 				//GOLD ORE
 				if($ev->getBlock()->getId() == 14){
 				    $ev->setDrops(array());
 				    $id = mt_rand(0, $level);
-				    $this->data->set(self::GOLD_ORE, ($this->data->get(self::GOLD_ORE) + 1 * $id));
+				    $this->data->set(self::GOLD_ORE, ($this->data->get(self::GOLD_ORE) + 1));
 				    $this->data->save();
 				}
 				//STONE -> COBLESTONE
