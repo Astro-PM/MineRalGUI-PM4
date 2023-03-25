@@ -1,0 +1,67 @@
+Prefix: "§l§a[§cMINE§bRAL§cGUI§a] "
+menu:
+ name: "§l§aMINE§bRAL"
+ ore_block: "§l§aYou have a total of:    {line}{line}§bCoblestone: §c{coblestone} {line}§bDiamond Block: §c{diamond_block} {line}§bEmerald Block: §c{emerald_block} {line}§bLapiz Block: §c{lapiz_block} {line}§bIron Block: §c{iron_block} {line}§bGold Block: §c{gold_block} {line}§bCoal Block: §c{coal_block} {line}§bRedstone Block: §c{redstone_block} {line}{line}"
+ ore: "§l§aYou have a total of:    {line}{line}§bCoblestone: §c{coblestone} {line}§bDiamond: §c{diamond} {line}§bEmerald: §c{emerald} {line}§bLapiz: §c{lapiz} {line}§bIron Ore: §c{iron_ore} {line}§bGold Ore: §c{gold_ore} {line}§bCoal: §c{coal} {line}§bRedstone: §c{redstone} {line}{line}"
+ exit: "§l§cExit"
+ back: "§l§aBack home page"
+
+full_inventory: "§l§cYour inventory is full, try again"
+
+quantity_available: "§l§aYou have §9[ §c{amount} §9]"
+
+add:
+ x16: "§l§aAdd §cx16"
+ x32: "§l§aAdd §cx32"
+ x64: "§l§aAdd §cx64"
+ message_x16: "§l§aYou have successfully added ore with quantity: §c16"
+ message_x32: "§l§aYou have successfully added ore with quantity: §c32"
+ message_x64: "§l§aYou have successfully added ore with quantity: §c64"
+ message_error: "§l§cYou don't have this ore in your inventory, please try again"
+
+take:
+ x16: "§l§aTake §cx16"
+ x32: "§l§aTake §cx32"
+ x64: "§l§aTake §cx64"
+ message_x16: "§l§aYou have successfully obtained ore with quantity: §c16"
+ message_x32: "§l§aYou have successfully obtained ore with quantity: §c32"
+ message_x64: "§l§aYou have successfully obtained ore with quantity: §c64"
+ message_error: "§l§cYou don't have enough ore in your MineRal!"
+ 
+elective:
+ menu: "§l§aPick up elective"
+ title: "§l§aMINE§bRAL"
+ input: "§l§oEnter the quantity you need in the box below!"
+ successfully: "§l§aYou have successfully obtained ore with quantity: §c{amount}"
+ error1: "§c§lPlease enter number!!"
+ error2: "§l§cInvalid number, please enter a positive number!"
+ error3: "§l§cYou don't have enough in §l§aMINE§bRAL"
+ 
+sell:
+ name: "§l§aSell Menu"
+ all: "§l§cSell All"
+ elective: "§l§cSell Elective"
+ successfully: "§l§aYou sold ore number §c{ore}, §aMoney after selling is: §b{money}"
+ fail: "§l§cYou don't have enough ore to sell"
+ input: "§l§oEnter the amount of ore to sell in here"
+ 
+# NOTE
+# {line} = down the line
+# {diamond} = Diamond
+# {emerald} = Emerald
+# {iron_ore} = Iron ore
+# {gold_ore} = Gold ore
+# {redstone} = Redstone
+# {coal} = Coal
+# {lapiz} = Lapiz
+# {coblestone} = Coblestone
+# {diamond_block} = Diamond Block
+# {emerald_block} = Emerald Block
+# {iron_block} = Iron Block
+# {gold_block} = Gold Block
+# {redstone_block} = Redstone Block
+# {coal_block} = Coal Block
+# {lapiz_block} = Lapiz Block
+# {amount} = Amount
+# {ore} = Id ore
+# {money} = Money received after sale
