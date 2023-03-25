@@ -72,6 +72,9 @@
 <h4>Upgrade</h4>
 
 >- Option to take the number of items out of the MineRal
+>- Add sell all and sell elective for each item
+>- Add `message.yml` so that admin can easily edit
+>- Add `sell.yml` so that admin can easily edit price ore
 
 <br>
 
