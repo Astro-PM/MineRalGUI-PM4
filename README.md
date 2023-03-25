@@ -27,7 +27,7 @@
 <p>4.0.0</p>
 </td>
 <td align="center">
-<p>1.5.0</p>
+<p>1.8.0</p>
 </td>
 </tr>
 </table>
@@ -134,6 +134,7 @@
 <br>
 
 - If you use a computer, you probably already know how to download
-- If you are using Android, please click <a href="https://github.com/Clickedtran/MineRalGUI-PM4/archive/refs/heads/Master.zip"><b><u>to here</b></u></a>for quick download 
+- If you are using Android, please click <a href="https://github.com/Clickedtran/MineRalGUI-PM4/archive/refs/heads/Master.zip"><b><u>to here</b></u></a>for quick download
+- If you are Vietnamese, please click <a href="https://github.com/Clickedtran/MineRalGUI-PM4/releases/download/Vietnamese/MineRalGUI_1.8.0_Viethoa.zip">here</a> to download Vietnamese version
 <br>
 
