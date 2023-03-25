@@ -277,12 +277,11 @@ class Main extends PluginBase implements Listener {
 
 	public function onCommand(CommandSender $sender, Command $command, String $label, array $args): bool {
 		switch ($command->getName()) {
-			case "khokhoangsan":
-			case "kho":
-			case "kks":
+			case "mineral":
+			case "mine":
 				$this->kho($sender);
 				break;
-			case "khoauto":
+			case mineauto":
 				$name = $sender->getName();
 				$auto = $this->auto->get($name);
 				if ($auto == "on") {
