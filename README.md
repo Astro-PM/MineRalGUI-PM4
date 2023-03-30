@@ -83,6 +83,7 @@
 >- Take ore in excess of the amount of ore currently in stock
 >- Take the number of ores as a negative number
 >- Add blocks to minerals when not already added to the island (SkyBlock)
+>- Take 0.xxx and sell 0.xxx
 <br>
 
 >- set the number of blocks in Mineral to be a negative number entered by the player
