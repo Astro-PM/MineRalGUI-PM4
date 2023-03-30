@@ -277,11 +277,12 @@ class Main extends PluginBase implements Listener {
 
 	public function onCommand(CommandSender $sender, Command $command, String $label, array $args): bool {
 		switch ($command->getName()) {
-			case "mineral":
-			case "mine":
+			case "khokhoangsan":
+			case "kho":
+			case "kks":
 				$this->kho($sender);
 				break;
-			case mineauto":
+			case "khoauto":
 				$name = $sender->getName();
 				$auto = $this->auto->get($name);
 				if ($auto == "on") {
@@ -727,6 +728,10 @@ class Main extends PluginBase implements Listener {
 			     $sender->sendMessage($this->prefix. $this->message->getNested("elective.error1"));
 			     return true;
 			 }
+			 if(!ctype_digit($data[0]) == "0.1"){
+        $sender->sendMessage($this->prefix. $this->message->getNested("elective.error1"));
+			   return true;
+         }
 				if($data[0] < 0){
 					$sender->sendMessage($this->prefix. $this->message->getNested("elective.error2"));
 				}else{
@@ -781,7 +786,7 @@ class Main extends PluginBase implements Listener {
 		     $this->data = new Config($this->getDataFolder() . "players/" . $sender->getName() . ".yml", Config::YAML);
 		     $this->data->set($type, 0);
 		     $this->data->save();
-		     EconomyAPI::getInstance()->adMoney($sender, $price);
+		     EconomyAPI::getInstance()->addMoney($sender, $price);
              $sender->sendMessage($this->prefix. str_replace(["{money}", "{ore}"], [$price, $type], $this->message->getNested("sell.successfully")));
        }else{
         	$sender->sendMessage($this->prefix. $this->message->getNested("sell.fail"));
@@ -815,7 +820,7 @@ class Main extends PluginBase implements Listener {
 		     $this->data = new Config($this->getDataFolder() . "players/" . $sender->getName() . ".yml", Config::YAML);
 		     $this->data->set($type, $this->data->get($type) - $data[0]);
 		     $this->data->save();
-		     CoinAPI::getInstance()->addCoin($sender, $price);
+		     EconomyAPI::getInstance()->addMoney($sender, $price);
              $sender->sendMessage($this->prefix. str_replace(["{money}", "{ore}"], [$price, $type], $this->message->getNested("sell.successfully")));
        }else{
         	$sender->sendMessage($this->prefix. $this->message->getNested("sell.fail"));
@@ -847,13 +852,17 @@ class Main extends PluginBase implements Listener {
 			 $sender->sendMessage($this->prefix. $this->message->getNested("elective.error1"));
 			   return true;
          }
+    if(!ctype_digit($data[0]) == "0.1"){
+        $sender->sendMessage($this->prefix. $this->message->getNested("elective.error1"));
+			   return true;
+         }
 	if($data[0] >= 0){
 		$price = $this->sell->get($type) * $data[0];
 	     if($this->getNumber($type, $sender) >= $data[0]){
 		     $this->data = new Config($this->getDataFolder() . "players/" . $sender->getName() . ".yml", Config::YAML);
 		     $this->data->set($type, $this->data->get($type) - $data[0]);
 		     $this->data->save();
-		     EconomyAPI::getInstance()->adMoney($sender, $price);
+		     EconomyAPI::getInstance()->addMoney($sender, $price);
              $sender->sendMessage($this->prefix. str_replace(["{money}", "{ore}"], [$price, $type], $this->message->getNested("sell.successfully")));
         }else{
         	$sender->sendMessage($this->prefix. $this->message->getNested("sell.fail"));
