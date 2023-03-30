@@ -29,7 +29,7 @@ take:
  message_error: "§l§cYou don't have enough ore in your MineRal!"
  
 elective:
- menu: "§l§aPick up elective"
+ menu: "§l§aTake elective"
  title: "§l§aMINE§bRAL"
  input: "§l§oEnter the quantity you need in the box below!"
  successfully: "§l§aYou have successfully obtained ore with quantity: §c{amount}"
