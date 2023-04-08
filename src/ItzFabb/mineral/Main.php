@@ -108,6 +108,7 @@ class Main extends PluginBase implements Listener {
 
 		if (!$ev->isCancelled()) {
 			if ($this->auto->get($player->getName()) == "on") {
+                          if($player->isCreative(true)){}else{
 				if ($ev->getBlock()->getId() == 56) {
 					$ev->setDrops(array());
 					$id = mt_rand(0,$level);
@@ -211,6 +212,7 @@ class Main extends PluginBase implements Listener {
 				    $this->data->save();
 				}
 			}
+                    }
 		}
 	}
 
