@@ -46,6 +46,7 @@ use jojoe77777\FormAPI\{SimpleForm, CustomForm};
 use vanilla\FortuneEnchantment;
 use onebone\economyapi\EconomyAPI;
 use onebone\coinapi\CoinAPI;
+use cooldogedev\BedrockEconomy\api\BedrockEcooldogedev\BedrockEconomy\api\BedrockEconomyAPI;
 
 class Main extends PluginBase implements Listener {
 
