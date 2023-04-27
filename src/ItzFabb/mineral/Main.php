@@ -789,7 +789,15 @@ class Main extends PluginBase implements Listener {
 		     $this->data = new Config($this->getDataFolder() . "players/" . $sender->getName() . ".yml", Config::YAML);
 		     $this->data->set($type, 0);
 		     $this->data->save();
-		     EconomyAPI::getInstance()->addMoney($sender, $price);
+		    BedrockEconomyAPI::legacy()->addToPlayerBalance(
+    "$player",
+    $price,
+    ClosureContext::create(
+        function (bool $wasUpdated): void {
+            var_dump($wasUpdated);
+        },
+    )
+);
              $sender->sendMessage($this->prefix. str_replace(["{money}", "{ore}"], [$price, $type], $this->message->getNested("sell.successfully")));
        }else{
         	$sender->sendMessage($this->prefix. $this->message->getNested("sell.fail"));
@@ -823,7 +831,15 @@ class Main extends PluginBase implements Listener {
 		     $this->data = new Config($this->getDataFolder() . "players/" . $sender->getName() . ".yml", Config::YAML);
 		     $this->data->set($type, $this->data->get($type) - $data[0]);
 		     $this->data->save();
-		     EconomyAPI::getInstance()->addMoney($sender, $price);
+		   BedrockEconomyAPI::legacy()->addToPlayerBalance(
+    "$sender",
+     $price,
+    ClosureContext::create(
+        function (bool $wasUpdated): void {
+            var_dump($wasUpdated);
+        },
+    )
+);
              $sender->sendMessage($this->prefix. str_replace(["{money}", "{ore}"], [$price, $type], $this->message->getNested("sell.successfully")));
        }else{
         	$sender->sendMessage($this->prefix. $this->message->getNested("sell.fail"));
@@ -865,7 +881,16 @@ class Main extends PluginBase implements Listener {
 		     $this->data = new Config($this->getDataFolder() . "players/" . $sender->getName() . ".yml", Config::YAML);
 		     $this->data->set($type, $this->data->get($type) - $data[0]);
 		     $this->data->save();
-		     EconomyAPI::getInstance()->addMoney($sender, $price);
+		     BedrockEconomyAPI::legacy()->addToPlayerBalance(
+    "$sender",
+    $price,
+    ClosureContext::create(
+        function (bool $wasUpdated): void {
+            var_dump($wasUpdated);
+        },
+    )
+);
+		     
              $sender->sendMessage($this->prefix. str_replace(["{money}", "{ore}"], [$price, $type], $this->message->getNested("sell.successfully")));
         }else{
         	$sender->sendMessage($this->prefix. $this->message->getNested("sell.fail"));
